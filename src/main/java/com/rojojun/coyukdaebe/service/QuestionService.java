@@ -1,6 +1,7 @@
 package com.rojojun.coyukdaebe.service;
 
 import com.rojojun.coyukdaebe.dto.QuestionMakerRequestDto;
+import com.rojojun.coyukdaebe.dto.QuestionResponseDto;
 import com.rojojun.coyukdaebe.entity.QuestionInfo;
 import com.rojojun.coyukdaebe.repository.QuestionInfoRepository;
 import lombok.AllArgsConstructor;
@@ -15,5 +16,9 @@ public class QuestionService {
 
     public QuestionInfo createQuestionInfo(QuestionMakerRequestDto questionMakerRequestDto) {
         return questionInfoRepository.save(questionMakerRequestDto.toEntity());
+    }
+
+    public QuestionResponseDto readQuestion(Long questionId) {
+        return null;
     }
 }

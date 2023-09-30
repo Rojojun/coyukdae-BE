@@ -7,6 +7,7 @@ import com.rojojun.coyukdaebe.entity.QuestionType;
 import com.rojojun.coyukdaebe.repository.QuestionInfoRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -30,11 +31,19 @@ class QuestionServiceTest {
     }
 
     @Test
-    void QuestionInfo_만들기() {
-        String nickname = "tester";
+    public void 문제_만들기() {
+        // given
         QuestionMakerRequestDto requestDto = new QuestionMakerRequestDto(
-                nickname, QuestionLevel.EASY, QuestionType.ANIMAL
+                "test", QuestionLevel.EASY, QuestionType.RANDOM
         );
-        QuestionInfo mockQuestionInfo = new QuestionInfo();
+        QuestionInfo mockQuestionInfo = requestDto.toEntity();
+        when(questionService.createQuestionInfo(requestDto)).thenReturn(mockQuestionInfo);
+
+        // when
+        QuestionInfo createQuestionInfo = questionService.createQuestionInfo(requestDto);
+
+        // then
+        assertEquals(mockQuestionInfo, createQuestionInfo);
+        verify(questionInfoRepository, times(1)).save(any(QuestionInfo.class));
     }
 }
