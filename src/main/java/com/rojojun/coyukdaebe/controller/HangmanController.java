@@ -20,6 +20,4 @@ public class HangmanController {
     public ApiResponse getQuestion(@PathVariable Long questionId) {
         return ApiResponse.success(questionService.readQuestion(questionId));
     }
-
-    @GetMapping
 }
