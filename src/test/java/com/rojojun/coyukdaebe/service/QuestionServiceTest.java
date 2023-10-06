@@ -42,7 +42,7 @@ class QuestionServiceTest {
         // when
         QuestionInfo createQuestionInfo = questionService.createQuestionInfo(requestDto);
 
-        // then
+        // then -> Test 문제 있음
         assertEquals(mockQuestionInfo, createQuestionInfo);
         verify(questionInfoRepository, times(1)).save(any(QuestionInfo.class));
     }
