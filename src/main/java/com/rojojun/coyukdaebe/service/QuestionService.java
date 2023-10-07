@@ -41,9 +41,29 @@ public class QuestionService {
                 Collections.shuffle(shuffledQuestions);
                 return shuffledQuestions.subList(0, Math.min(shuffledQuestions.size(), 3));
             }
+            case JOB -> {
+               return shuffleQuestionListByType(questionsList, QuestionType.JOB);
+            }
+            case PLANT -> {
+                return shuffleQuestionListByType(questionsList, QuestionType.PLANT);
+            }
+            case ANIMAL -> {
+                return shuffleQuestionListByType(questionsList, QuestionType.ANIMAL);
+            }
+            case EXERCISE -> {
+                return shuffleQuestionListByType(questionsList, QuestionType.EXERCISE);
+            }
             default -> {
                 throw new CustomException(ErrorCode.QUESTION_INFO_UNKNOWN);
             }
         }
+    }
+
+    private List<Questions> shuffleQuestionListByType(List<Questions> questionsList, QuestionType type) {
+        List<Questions> typeQuestionsList = new ArrayList<>(questionsList.stream()
+                .filter(questions -> questions.getQuestionType() == type).toList());
+        Collections.shuffle(typeQuestionsList);
+        return typeQuestionsList.subList(0, Math.min(typeQuestionsList.size(), 3));
+
     }
 }
