@@ -19,14 +19,15 @@ services:
       - --collation-server=utf8mb4_unicode_ci
   mongodb:
     image: mongo
-    container_name: mongodb
+    container_name: coyukdae-mongoDB
+    restart: always
     ports:
       - 27017:27017
-    volumes:
-      - data:/data
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=rootuser
-      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - ./mongodb:/data/db
   mongo-express:
     image: mongo-express
     container_name: mongo-express
