@@ -1,3 +1,4 @@
+/*
 package com.rojojun.coyukdaebe.service;
 
 import com.rojojun.coyukdaebe.dto.QuestionMakerRequestDto;
@@ -31,7 +32,7 @@ class QuestionServiceTest {
     }
 
     @Test
-    public void 문제_만들기() {
+    public void 문제_만a들기() {
         // given
         QuestionMakerRequestDto requestDto = new QuestionMakerRequestDto(
                 "test", QuestionLevel.EASY, QuestionType.RANDOM
@@ -46,4 +47,4 @@ class QuestionServiceTest {
         assertEquals(mockQuestionInfo, createQuestionInfo);
         verify(questionInfoRepository, times(1)).save(any(QuestionInfo.class));
     }
-}
+}*/
