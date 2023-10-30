@@ -7,16 +7,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-@RestController
+@RestController("/games/hangman")
 public class HangmanController {
     private final QuestionService questionService;
 
-    @PostMapping("/games/hangman/questions")
+    @PostMapping("/questions")
     public ApiResponse createQuestions(@RequestBody QuestionMakerRequestDto requestDto) {
         return ApiResponse.success(questionService.createQuestionInfo(requestDto));
     }
 
-    @GetMapping("/games/hangman/question/{questionId}")
+    @GetMapping("/question/{questionId}")
     public ApiResponse getQuestion(@PathVariable Long questionId) {
         return ApiResponse.success(questionService.readQuestion(questionId));
     }
