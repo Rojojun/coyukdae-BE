@@ -4,7 +4,7 @@ services:
     platform: linux/x86_64
     image: mysql:8.0
     container_name: coyukdae-dev
-    restart: always
+    restart: always정
     ports:
       - 3310:3306
     environment:
