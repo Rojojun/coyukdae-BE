@@ -11,7 +11,7 @@ public class DrawingController {
 
     @PostMapping("/picture/draw")
     public void drawPicture() {
-
+        return;
     }
 
     @GetMapping("/picture/show")

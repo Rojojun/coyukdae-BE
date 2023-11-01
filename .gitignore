@@ -39,3 +39,4 @@ out/
 # dev-setting
 /src/main/resources/application-dev.properties
 /data/
+/mongodb/
