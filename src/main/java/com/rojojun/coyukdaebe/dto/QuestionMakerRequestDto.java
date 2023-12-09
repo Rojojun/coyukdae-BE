@@ -9,3 +9,4 @@ public record QuestionMakerRequestDto(String nickname, QuestionLevel questionLev
         return QuestionInfo.of(questionLevel, questionType, nickname);
     }
 }
+
